@@ -1,27 +1,3 @@
-/* let comida = prompt("que queres comer?");
-
-switch (comida) {
-  case "pizza":
-    console.log(`Pedido ${comida}, valor $100`);
-    break;
-
-  case "empanadita":
-    console.log(`Pedido ${comida}, valor $1000`);
-    break;
-
-  case "milanesa":
-    console.log(`Pedido ${comida}, valor $1000`);
-    break;
-  case "arroz":
-    console.log(`Pedido ${comida}, valor $200`);
-    break;
-}
-function name(params) {
-    
-}
-gfgfgdf() */
-
-
 // Funcion seleccionar nivel de membresía:
 
 function membership(){
@@ -71,6 +47,7 @@ function addingProduct() {
     }
     
     alert("The price for your chosen product is " + price + ".-");
+    console.log("The price for your chosen product is " + price + ".-")
   }
 
 addingProduct();
