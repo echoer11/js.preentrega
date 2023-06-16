@@ -1,8 +1,37 @@
 .bodylicious {
   height: 100vh;
-  background: linear-gradient(to bottom, #465663, #1e222c);
+  background: linear-gradient(to bottom, #e8e9ea, #ffffff);
   background-attachment: fixed;
   background-size: cover;
+}
+
+.loguito {
+  margin-right: 2rem;
+}
+
+.searchBar {
+  max-height: 2rem;
+}
+.searchBar button {
+  max-height: 2rem;
+  display: flex;
+  align-items: center;
+  border-color: #ffffff;
+  border-width: 0.75px;
+  color: #ffffff;
+}
+.searchBar button:hover {
+  background-color: white;
+  color: #272727;
+  border-color: #e8e9ea;
+}
+
+#productContainer {
+  margin: 1rem;
+}
+#productContainer .card {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
