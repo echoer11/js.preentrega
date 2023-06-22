@@ -97,7 +97,7 @@ for (const watch of watchModels) {
       <h5 class="card-title">${watch.brand}</h5>
       <p class="card-model">${watch.model}</p>
       <p class="card-price"><strong>$${watch.price}</strong></p>
-      <a href="#" class="btn btn-primary" onclick="addToCart(${watch.id})">Add to Cart</a>
+      <a href="javascript:void(0)" class="btn btn-primary" onclick="addToCart(${watch.id})">Add to Cart</a>
     </div>
   </div>`;
   productContainer.appendChild(card);
@@ -108,7 +108,7 @@ for (const watch of watchModels) {
 
 let shoppingCart = [];
 
-const updateStorage= (shoppingCart)=>{
+const updateStorage= ()=>{
   localStorage.setItem("Shopping Cart", JSON.stringify(shoppingCart));
   };
 
@@ -181,4 +181,5 @@ function cartUpdate() {
   }
 }
 
+// Sumar el precio de los productos del carrito
 
