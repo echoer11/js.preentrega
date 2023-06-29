@@ -5,14 +5,14 @@
   background-size: cover;
 }
 
-.loguito {
+.navbar .loguito {
   margin-right: 2rem;
+  margin-bottom: 0.2rem;
 }
-
-.searchBar {
+.navbar .searchBar {
   max-height: 2rem;
 }
-.searchBar button {
+.navbar .searchBar button {
   max-height: 2rem;
   display: flex;
   align-items: center;
@@ -20,10 +20,17 @@
   border-width: 0.75px;
   color: #ffffff;
 }
-.searchBar button:hover {
+.navbar .searchBar button:hover {
   background-color: white;
   color: #272727;
   border-color: #e8e9ea;
+}
+.navbar #cartito {
+  padding-left: 1rem;
+  transition: transform 0.15s ease-in-out;
+}
+.navbar #cartito:hover {
+  transform: scale(1.1);
 }
 
 #productContainer {
@@ -32,6 +39,9 @@
 #productContainer .card {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+#productContainer .card .card-body {
+  padding: -1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

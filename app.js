@@ -1,107 +1,114 @@
-// Array de productos de la tienda
-const watchModels = [
-  { 
-    id: 1, 
-    brand: "Rolex", 
-    model: "Submariner", 
-    price: 14000,
-    image: "./assets/rolex01.png",
-  },
+// // Array de productos de la tienda
+// const watchModels = [
+//   { 
+//     id: 1, 
+//     brand: "Rolex", 
+//     model: "Submariner", 
+//     price: 14000,
+//     image: "./assets/rolex01.png",
+//   },
 
-  { 
-    id:2,
-    brand: "Rolex", 
-    model: "Sea-Dweller", 
-    price: 12000,
-    image: "./assets/rolex01.png", 
-  },
+//   { 
+//     id:2,
+//     brand: "Rolex", 
+//     model: "Sea-Dweller", 
+//     price: 12000,
+//     image: "./assets/rolex01.png", 
+//   },
 
-  { id:3,
-    brand: "Rolex", 
-    model: "Daytona", 
-    price: 10000,
-    image: "./assets/rolex01.png", 
-  },
+//   { id:3,
+//     brand: "Rolex", 
+//     model: "Daytona", 
+//     price: 10000,
+//     image: "./assets/rolex01.png", 
+//   },
 
-  { id:4,
-    brand: "Casio", 
-    model: "GM-B2100", 
-    price: 200,
-    image: "./assets/rolex01.png", 
-  },
+//   { id:4,
+//     brand: "Casio", 
+//     model: "GM-B2100", 
+//     price: 200,
+//     image: "./assets/rolex01.png", 
+//   },
 
-  { id:5,
-    brand: "Casio", 
-    model: "GSW-H1000", 
-    price: 300,
-    image: "./assets/rolex01.png", 
-  },
+//   { id:5,
+//     brand: "Casio", 
+//     model: "GSW-H1000", 
+//     price: 300,
+//     image: "./assets/rolex01.png", 
+//   },
 
-  { id:6,
-    brand: "Casio", 
-    model: "MTG-B2000PH", 
-    price: 3200,
-    image: "./assets/rolex01.png", 
-  },
+//   { id:6,
+//     brand: "Casio", 
+//     model: "MTG-B2000PH", 
+//     price: 3200,
+//     image: "./assets/rolex01.png", 
+//   },
 
-  { id:7,
-    brand: "Seiko", 
-    model: "Presage", 
-    price: 1100,
-    image: "./assets/rolex01.png", 
-  },
+//   { id:7,
+//     brand: "Seiko", 
+//     model: "Presage", 
+//     price: 1100,
+//     image: "./assets/rolex01.png", 
+//   },
 
-  { id:8,
-    brand: "Seiko", 
-    model: "Prospex", 
-    price: 2800,
-    image: "./assets/rolex01.png", 
-  },
+//   { id:8,
+//     brand: "Seiko", 
+//     model: "Prospex", 
+//     price: 2800,
+//     image: "./assets/rolex01.png", 
+//   },
   
-  { id:9,
-    brand: "Seiko", 
-    model: "5 Sports", 
-    price: 1500,
-    image: "./assets/rolex01.png", 
-  },
-  { id:10,
-    brand: "Seiko", 
-    model: "5 Sports", 
-    price: 1500,
-    image: "./assets/rolex01.png", 
-  },
-  { id:11,
-    brand: "Seiko", 
-    model: "5 Sports", 
-    price: 1500,
-    image: "./assets/rolex01.png", 
-  },
-  { id:12,
-    brand: "Seiko", 
-    model: "5 Sports", 
-    price: 1500,
-    image: "./assets/rolex01.png", 
-  },
-];
+//   { id:9,
+//     brand: "Seiko", 
+//     model: "5 Sports", 
+//     price: 1500,
+//     image: "./assets/rolex01.png", 
+//   },
+//   { id:10,
+//     brand: "Seiko", 
+//     model: "5 Sports", 
+//     price: 1500,
+//     image: "./assets/rolex01.png", 
+//   },
+//   { id:11,
+//     brand: "Seiko", 
+//     model: "5 Sports", 
+//     price: 1500,
+//     image: "./assets/rolex01.png", 
+//   },
+//   { id:12,
+//     brand: "Seiko", 
+//     model: "5 Sports", 
+//     price: 1500,
+//     image: "./assets/rolex01.png", 
+//   },
+// ];
 
 // Productos Y creacion de cards
 const productContainer = document.getElementById('productContainer');
+let watchModels;
+// Función Asíncrona
+const getWatchModels = async () => {
+  const response = await fetch('products.json');
+  watchModels = await response.json();
 
-for (const watch of watchModels) {
-  const card = document.createElement('div');
-  card.classList.add('col-lg-3', 'col-md-4', 'col-sm-12');
-  card.innerHTML = 
-  `<div class="card">
-    <img src="${watch.image}" class="card-img-top" alt="${watch.brand} ${watch.model}">
-    <div class="card-body">
-      <h5 class="card-title">${watch.brand}</h5>
-      <p class="card-model">${watch.model}</p>
-      <p class="card-price"><strong>$${watch.price}</strong></p>
-      <a href="javascript:void(0)" class="btn btn-primary" onclick="addToCart(${watch.id})">Add to Cart</a>
-    </div>
-  </div>`;
-  productContainer.appendChild(card);
+  for (const watch of watchModels) {
+    const card = document.createElement('div');
+    card.classList.add('col-lg-3', 'col-md-4', 'col-sm-12');
+    card.innerHTML =
+      `<div class="card">
+        <img src="${watch.image}" class="card-img-top" alt="${watch.brand} ${watch.model}">
+        <div class="card-body">
+          <h5 class="card-title">${watch.brand}</h5>
+          <p class="card-model">${watch.model}</p>
+          <p class="card-price"><strong>$${watch.price}</strong></p>
+          <button class="btn btn-primary" onclick="addToCart(${watch.id})">Add to Cart</button>
+        </div>
+      </div>`;
+    productContainer.appendChild(card);
+  }
 };
+getWatchModels();
 
 
 // Array del carrito 
@@ -125,6 +132,7 @@ function addToCart(productId) {
     }
     updateStorage();
     cartUpdate();
+    showToast(`${product.brand} ${product.model} Added to Cart`);
     console.log (shoppingCart,product.quantity)
   }
 };
@@ -162,18 +170,30 @@ function cartUpdate() {
     const cartItem = document.createElement('div');
     cartItem.classList.add('cart-item');
     cartItem.innerHTML = `
-      <div class="cartCard">
-        <img src="${product.image}" class="card-img-top" alt="${product.brand} ${product.model}">
-        <div class="card-body">
-          <h5 class="card-title">${product.brand}</h5>
-          <p class="card-model">${product.model}</p>
-          <p class="card-price"><strong>$${product.price}</strong></p>
-          <div class="quantity">
-            <button class="btn btn-sm btn-secondary" onclick="reduceQuantity(${product.id})">-</button>
-            <span>${product.quantity}</span>
-            <button class="btn btn-sm btn-secondary" onclick="addToCart(${product.id})">+</button>
+    <div class="cartCard card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="${product.image}" class="card-img-top" style="max-height: 150px; width: auto;" alt="${product.brand} ${product.model}" />
           </div>
-          <button class="btn btn-danger btn-sm" onclick="removeFromCart(${product.id})">Remove</button>
+          <div class="col-md-8">
+            <div class="card-body d-flex flex-column justify-content-between h-100">
+              <div>
+                <h5 class="card-title">${product.brand}</h5>
+                <p class="card-model">${product.model}</p>
+                <p class="card-price">
+                  <strong>$${product.price * product.quantity}</strong>
+                </p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <button class="btn btn-sm btn-secondary" onclick="reduceQuantity(${product.id})">-</button>
+                  <span>${product.quantity}</span>
+                  <button class="btn btn-sm btn-secondary" onclick="addToCart(${product.id})">+</button>
+                </div>
+                <button class="btn btn-danger btn-sm ms-3" onclick="removeFromCart(${product.id})">Remove</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     `;
@@ -181,5 +201,34 @@ function cartUpdate() {
   }
 }
 
-// Sumar el precio de los productos del carrito
+// Visualizar el carrito (offcanvas)
+const cartIcon = document.getElementById('cartito');
+const offCanvasCart = document.getElementById('offCanvasCart');
+
+cartIcon.addEventListener('click', function() {
+  offCanvasCart.classList.toggle('show');
+});
+offCanvasCart.querySelector('.btn-close').addEventListener('click', function() {
+  offCanvasCart.classList.remove('show');
+});
+
+// Función Toastify
+function showToast(message) {
+  Toastify({
+    text: message,
+    duration: 2000, 
+    gravity: 'top', 
+    backgroundColor: '#272727', 
+    offset:{
+      y:50,
+    }
+  })
+  .showToast();
+}
+
+
+
+
+
+
 
