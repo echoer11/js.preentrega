@@ -1,102 +1,104 @@
 // // Array de productos de la tienda
 // const watchModels = [
-//   { 
-//     id: 1, 
-//     brand: "Rolex", 
-//     model: "Submariner", 
+//   {
+//     id: 1,
+//     brand: "Rolex",
+//     model: "Submariner",
 //     price: 14000,
 //     image: "./assets/rolex01.png",
 //   },
 
-//   { 
+//   {
 //     id:2,
-//     brand: "Rolex", 
-//     model: "Sea-Dweller", 
+//     brand: "Rolex",
+//     model: "Sea-Dweller",
 //     price: 12000,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 
 //   { id:3,
-//     brand: "Rolex", 
-//     model: "Daytona", 
+//     brand: "Rolex",
+//     model: "Daytona",
 //     price: 10000,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 
 //   { id:4,
-//     brand: "Casio", 
-//     model: "GM-B2100", 
+//     brand: "Casio",
+//     model: "GM-B2100",
 //     price: 200,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 
 //   { id:5,
-//     brand: "Casio", 
-//     model: "GSW-H1000", 
+//     brand: "Casio",
+//     model: "GSW-H1000",
 //     price: 300,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 
 //   { id:6,
-//     brand: "Casio", 
-//     model: "MTG-B2000PH", 
+//     brand: "Casio",
+//     model: "MTG-B2000PH",
 //     price: 3200,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 
 //   { id:7,
-//     brand: "Seiko", 
-//     model: "Presage", 
+//     brand: "Seiko",
+//     model: "Presage",
 //     price: 1100,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 
 //   { id:8,
-//     brand: "Seiko", 
-//     model: "Prospex", 
+//     brand: "Seiko",
+//     model: "Prospex",
 //     price: 2800,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
-  
+
 //   { id:9,
-//     brand: "Seiko", 
-//     model: "5 Sports", 
+//     brand: "Seiko",
+//     model: "5 Sports",
 //     price: 1500,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 //   { id:10,
-//     brand: "Seiko", 
-//     model: "5 Sports", 
+//     brand: "Seiko",
+//     model: "5 Sports",
 //     price: 1500,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 //   { id:11,
-//     brand: "Seiko", 
-//     model: "5 Sports", 
+//     brand: "Seiko",
+//     model: "5 Sports",
 //     price: 1500,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 //   { id:12,
-//     brand: "Seiko", 
-//     model: "5 Sports", 
+//     brand: "Seiko",
+//     model: "5 Sports",
 //     price: 1500,
-//     image: "./assets/rolex01.png", 
+//     image: "./assets/rolex01.png",
 //   },
 // ];
 
 // Productos Y creacion de cards
-const productContainer = document.getElementById('productContainer');
+
+const productContainer = document.getElementById("productContainer");
 let watchModels;
+
 // Función Asíncrona
+
 const getWatchModels = async () => {
-  const response = await fetch('products.json');
+  const response = await fetch("products.json");
   watchModels = await response.json();
 
   for (const watch of watchModels) {
-    const card = document.createElement('div');
-    card.classList.add('col-lg-3', 'col-md-4', 'col-sm-12');
-    card.innerHTML =
-      `<div class="card">
+    const card = document.createElement("div");
+    card.classList.add("col-lg-3", "col-md-4", "col-sm-12");
+    card.innerHTML = `<div class="card">
         <img src="${watch.image}" class="card-img-top" alt="${watch.brand} ${watch.model}">
         <div class="card-body">
           <h5 class="card-title">${watch.brand}</h5>
@@ -110,16 +112,16 @@ const getWatchModels = async () => {
 };
 getWatchModels();
 
-
-// Array del carrito 
+// Array del carrito
 
 let shoppingCart = [];
 
-const updateStorage= ()=>{
+const updateStorage = () => {
   localStorage.setItem("Shopping Cart", JSON.stringify(shoppingCart));
-  };
+};
 
 // Añadir los productos al carrito
+
 function addToCart(productId) {
   const product = watchModels.find((watch) => watch.id === productId);
   if (product) {
@@ -132,12 +134,14 @@ function addToCart(productId) {
     }
     updateStorage();
     cartUpdate();
+    getTotalPrice();
     showToast(`${product.brand} ${product.model} Added to Cart`);
-    console.log (shoppingCart,product.quantity)
+    console.log(shoppingCart, product.quantity);
   }
-};
+}
 
 // Sacar productos del carrito
+
 function reduceQuantity(productId) {
   const existingProduct = shoppingCart.find((item) => item.id === productId);
   if (existingProduct) {
@@ -149,6 +153,7 @@ function reduceQuantity(productId) {
     }
     updateStorage();
     cartUpdate();
+    getTotalPrice();
   }
 }
 function removeFromCart(productId) {
@@ -158,23 +163,35 @@ function removeFromCart(productId) {
     shoppingCart.splice(index, 1);
     updateStorage();
     cartUpdate();
+    getTotalPrice();
   }
+}
+
+// Calcular el precio total
+
+function getTotalPrice() {
+  let totalPrice = 0;
+  for (const product of shoppingCart) {
+    totalPrice += product.price * product.quantity;
+  }
+
+  const totalPriceElement = document.querySelector(".total-price");
+  totalPriceElement.innerHTML = `<strong>$${totalPrice}</strong>`;
 }
 
 // Dibujar el carrito
 function cartUpdate() {
-  const cartContainer = document.getElementById('cartContainer');
- 
-  cartContainer.innerHTML = '';
+  const cartContainer = document.getElementById("cartContainer");
+
+  cartContainer.innerHTML = "";
   for (const product of shoppingCart) {
-    const cartItem = document.createElement('div');
-    cartItem.classList.add('cart-item');
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
     cartItem.innerHTML = `
     <div class="cartCard card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="${product.image}" class="card-img-top" style="max-height: 150px; width: auto;" alt="${product.brand} ${product.model}" />
-          </div>
+            <img src="${product.image}" class="card-img-top" style="max-height: 150px; width: auto;" alt="${product.brand} ${product.model}"></div>
           <div class="col-md-8">
             <div class="card-body d-flex flex-column justify-content-between h-100">
               <div>
@@ -202,33 +219,64 @@ function cartUpdate() {
 }
 
 // Visualizar el carrito (offcanvas)
-const cartIcon = document.getElementById('cartito');
-const offCanvasCart = document.getElementById('offCanvasCart');
 
-cartIcon.addEventListener('click', function() {
-  offCanvasCart.classList.toggle('show');
-});
-offCanvasCart.querySelector('.btn-close').addEventListener('click', function() {
-  offCanvasCart.classList.remove('show');
+const cartIcon = document.getElementById("cartito");
+const offCanvasCart = document.getElementById("offCanvasCart");
+const emptyCart = document.getElementById("emptyCart");
+
+cartIcon.addEventListener("click", function () {
+  if (shoppingCart.length === 0) {
+    emptyCart.classList.toggle("show");
+    setTimeout(() => {
+      emptyCart.classList.remove("show");
+    }, 2000);
+  } else {
+    offCanvasCart.classList.toggle("show");
+  }
 });
 
-// Función Toastify
+offCanvasCart.querySelector(".btn-close").addEventListener("click", function () {
+  offCanvasCart.classList.remove("show");
+});
+
+emptyCart.querySelector(".btn-close").addEventListener("click", function () {
+  emptyCart.classList.remove("show");
+});
+
+// End Shopping / Limpiar elementos del carrito
+
+const endShoppingButton = document.getElementById("endShopping");
+
+endShoppingButton.addEventListener("click", function () {
+  shoppingCart = [];
+  updateStorage();
+  cartUpdate();
+  getTotalPrice();
+  offCanvasCart.classList.remove("show");
+  endToast(`Thanks for shopping with us!`);
+});
+
+// Funciones Toastify
 function showToast(message) {
   Toastify({
     text: message,
-    duration: 2000, 
-    gravity: 'top', 
-    backgroundColor: '#272727', 
-    offset:{
-      y:50,
-    }
-  })
-  .showToast();
+    duration: 1000,
+    gravity: "top",
+    backgroundColor: "#272727",
+    offset: {
+      y: 50,
+    },
+  }).showToast();
 }
 
-
-
-
-
-
-
+function endToast(message) {
+  Toastify({
+    text: message,
+    duration: 2000,
+    gravity: "top",
+    backgroundColor: "#272727",
+    offset: {
+      y: 50,
+    },
+  }).endToast();
+}

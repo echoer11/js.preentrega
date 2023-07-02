@@ -59,3 +59,36 @@
 		}
 	}
 }
+
+#emptyCart{
+	max-height:140px ;
+	right: 20px;
+	top:62px;
+	border-width: 0px;
+}
+
+	
+
+
+// Footer Styles
+
+.footerilli {
+	padding: 10px;
+	border-top: 1px solid #bebebe;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+
+	img {
+		padding-left: 4px;
+		padding-right: 4px;
+		max-height: 30px;
+		transition: transform 0.15s ease-in-out;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+
+}

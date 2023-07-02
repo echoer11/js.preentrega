@@ -44,4 +44,29 @@
   padding: -1rem;
 }
 
+#emptyCart {
+  max-height: 140px;
+  right: 20px;
+  top: 62px;
+  border-width: 0px;
+}
+
+.footerilli {
+  padding: 10px;
+  border-top: 1px solid #bebebe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.footerilli img {
+  padding-left: 4px;
+  padding-right: 4px;
+  max-height: 30px;
+  transition: transform 0.15s ease-in-out;
+}
+.footerilli img:hover {
+  transform: scale(1.1);
+}
+
 /*# sourceMappingURL=style.css.map */
