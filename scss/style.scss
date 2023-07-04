@@ -55,7 +55,18 @@
 		margin-bottom: 0.5rem;
 
 		.card-body {
-			padding: -1rem;
+			padding: 1rem;
+			h5{
+				padding: 0rem;
+				margin:0rem;
+			}
+			p{
+				margin: 0rem;			
+				
+			}
+			.card-price{
+				margin-bottom: 0.5rem;
+			}
 		}
 	}
 }

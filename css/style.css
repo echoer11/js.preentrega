@@ -41,7 +41,17 @@
   margin-bottom: 0.5rem;
 }
 #productContainer .card .card-body {
-  padding: -1rem;
+  padding: 1rem;
+}
+#productContainer .card .card-body h5 {
+  padding: 0rem;
+  margin: 0rem;
+}
+#productContainer .card .card-body p {
+  margin: 0rem;
+}
+#productContainer .card .card-body .card-price {
+  margin-bottom: 0.5rem;
 }
 
 #emptyCart {

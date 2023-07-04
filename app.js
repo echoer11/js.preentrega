@@ -104,7 +104,7 @@ const getWatchModels = async () => {
           <h5 class="card-title">${watch.brand}</h5>
           <p class="card-model">${watch.model}</p>
           <p class="card-price"><strong>$${watch.price}</strong></p>
-          <button class="btn btn-primary" onclick="addToCart(${watch.id})">Add to Cart</button>
+          <button class="btn btn-outline-secondary btn-sm" onclick="addToCart(${watch.id})">Add to Cart</button>
         </div>
       </div>`;
     productContainer.appendChild(card);
