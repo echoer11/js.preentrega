@@ -98,12 +98,12 @@ const getWatchModels = async () => {
   for (const watch of watchModels) {
     const card = document.createElement("div");
     card.classList.add("col-lg-3", "col-md-4", "col-sm-12");
-    card.innerHTML = `<div class="card">
-        <img src="${watch.image}" class="card-img-top" alt="${watch.brand} ${watch.model}">
+    card.innerHTML = `<div class="card" id="cardelli">
+    <img src="${watch.image}" class="card-img-top" alt="${watch.brand} ${watch.model}" onclick="openImageWindow('${watch.image}')"> <hr>
         <div class="card-body">
           <h5 class="card-title">${watch.brand}</h5>
           <p class="card-model">${watch.model}</p>
-          <p class="card-price"><strong>$${watch.price}</strong></p>
+          <p class="card-price">$${watch.price}</p>
           <button class="btn btn-outline-secondary btn-sm" onclick="addToCart(${watch.id})">Add to Cart</button>
         </div>
       </div>`;
@@ -111,6 +111,10 @@ const getWatchModels = async () => {
   }
 };
 getWatchModels();
+
+function openImageWindow(imageUrl) {
+  window.open(imageUrl, "_blank", "width=500,height=500");
+}
 
 // Array del carrito
 
@@ -176,7 +180,7 @@ function getTotalPrice() {
   }
 
   const totalPriceElement = document.querySelector(".total-price");
-  totalPriceElement.innerHTML = `<strong>$${totalPrice}</strong>`;
+  totalPriceElement.innerHTML = `$${totalPrice}`;
 }
 
 // Dibujar el carrito
@@ -187,33 +191,32 @@ function cartUpdate() {
   for (const product of shoppingCart) {
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
-    cartItem.innerHTML = `
-    <div class="cartCard card mb-3" style="max-width: 540px;">
+    cartItem.innerHTML = `<div class="cartCard card mb-2" style="max-width: 540px;">
         <div class="row g-0">
-          <div class="col-md-4">
-            <img src="${product.image}" class="card-img-top" style="max-height: 150px; width: auto;" alt="${product.brand} ${product.model}"></div>
-          <div class="col-md-8">
+          <div class=" image-cart col-sm-4">
+            <img src="${product.image}" class="card-img-top"  alt="${product.brand} ${product.model}">
+            </div>
+            
+          <div class="col-sm-8">
             <div class="card-body d-flex flex-column justify-content-between h-100">
               <div>
                 <h5 class="card-title">${product.brand}</h5>
                 <p class="card-model">${product.model}</p>
                 <p class="card-price">
-                  <strong>$${product.price * product.quantity}</strong>
-                </p>
+                  $${product.price * product.quantity}</p>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <button class="btn btn-sm btn-secondary" onclick="reduceQuantity(${product.id})">-</button>
+                <div class="button-group">
+                  <button class="btn btn-outline-secondary btn-sm" onclick="reduceQuantity(${product.id})"> - </button>
                   <span>${product.quantity}</span>
-                  <button class="btn btn-sm btn-secondary" onclick="addToCart(${product.id})">+</button>
+                  <button class="btn btn-outline-secondary btn-sm" onclick="addToCart(${product.id})"> + </button>
                 </div>
-                <button class="btn btn-danger btn-sm ms-3" onclick="removeFromCart(${product.id})">Remove</button>
+                <button class="btn btn-outline-danger btn-sm ms-3" onclick="removeFromCart(${product.id})">Remove</button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    `;
+      </div>`;
     cartContainer.appendChild(cartItem);
   }
 }

@@ -1,15 +1,21 @@
 .bodylicious {
   height: 100vh;
-  background: linear-gradient(to bottom, #e8e9ea, #ffffff);
+  background: linear-gradient(to bottom, #ffffff, #ededed);
   background-attachment: fixed;
   background-size: cover;
 }
 
+.navbar {
+  font-family: "rubik", sans-serif;
+  font-weight: 400;
+}
 .navbar .loguito {
   margin-right: 2rem;
   margin-bottom: 0.2rem;
 }
 .navbar .searchBar {
+  font-family: "rubik", sans-serif;
+  font-weight: 300;
   max-height: 2rem;
 }
 .navbar .searchBar button {
@@ -30,7 +36,7 @@
   transition: transform 0.15s ease-in-out;
 }
 .navbar #cartito:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 #productContainer {
@@ -39,6 +45,23 @@
 #productContainer .card {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  transition: transform 0.1s ease-in-out;
+}
+#productContainer .card:hover {
+  transform: scale(1.01);
+  border-color: #272727;
+  border-width: 0.08rem;
+  box-shadow: 0 0 5px rgba(154, 154, 154, 0.3);
+}
+#productContainer .card:hover hr {
+  border-color: #272727;
+  opacity: 0.6;
+}
+#productContainer .card hr {
+  border-color: #7c7b7b;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.2rem;
 }
 #productContainer .card .card-body {
   padding: 1rem;
@@ -51,14 +74,65 @@
   margin: 0rem;
 }
 #productContainer .card .card-body .card-price {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  color: #7c7b7b;
 }
 
 #emptyCart {
-  max-height: 140px;
+  max-height: 70px;
+  max-width: 400px;
+  position: fixed;
+  z-index: 100;
   right: 20px;
   top: 62px;
-  border-width: 0px;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: #7c7b7b;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.total-price {
+  margin: 0.4rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  font-size: x-large;
+  color: #7c7b7b;
+}
+
+.cartCard {
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+.cartCard h5 {
+  padding: 0rem;
+  margin: 0rem;
+}
+.cartCard p {
+  margin: 0rem;
+}
+.cartCard .image-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cartCard .image-cart .card-img-top {
+  padding: 0.2rem;
+  max-height: 145px;
+  width: auto;
+}
+.cartCard .card-body {
+  padding: 0.5rem;
+}
+.cartCard .card-body .button-group span {
+  margin: 0.2rem;
+}
+.cartCard .card-body .card-price {
+  margin-bottom: 0.2rem;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 300;
+  color: #7c7b7b;
 }
 
 .footerilli {
