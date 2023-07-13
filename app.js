@@ -106,10 +106,10 @@ function cartUpdate() {
     cartItem.classList.add("cart-item");
     cartItem.innerHTML = `<div class="cartCard card mb-2">
         <div class="row g-0">
-          <div class=" image-cart col-sm-4">
+          <div class=" image-cart col-sm-4 col-4">
             <img src="${product.image}" class="card-img-top"  alt="${product.brand} ${product.model}">
           </div>
-          <div class="col-sm-5">
+          <div class="col-sm-5 col-5">
             <div class="card-body d-flex flex-column justify-content-between h-100">
               <div class="primer-columna">
                 <h5 class="card-title">${product.brand}</h5>
@@ -119,7 +119,7 @@ function cartUpdate() {
               </div>
             </div>
           </div>
-          <div class="col-sm-3 button-group">
+          <div class="col-sm-3 col-3 button-group">
           <div class="d-flex flex-column justify-content-between">
             <div class="paddingBotones d-flex">
                   <button class="btn btn-outline-secondary btn-sm" onclick="reduceQuantity(${product.id})"> - </button>
