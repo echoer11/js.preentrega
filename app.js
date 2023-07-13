@@ -1,89 +1,3 @@
-// // Array de productos de la tienda
-// const watchModels = [
-//   {
-//     id: 1,
-//     brand: "Rolex",
-//     model: "Submariner",
-//     price: 14000,
-//     image: "./assets/rolex01.png",
-//   },
-
-//   {
-//     id:2,
-//     brand: "Rolex",
-//     model: "Sea-Dweller",
-//     price: 12000,
-//     image: "./assets/rolex01.png",
-//   },
-
-//   { id:3,
-//     brand: "Rolex",
-//     model: "Daytona",
-//     price: 10000,
-//     image: "./assets/rolex01.png",
-//   },
-
-//   { id:4,
-//     brand: "Casio",
-//     model: "GM-B2100",
-//     price: 200,
-//     image: "./assets/rolex01.png",
-//   },
-
-//   { id:5,
-//     brand: "Casio",
-//     model: "GSW-H1000",
-//     price: 300,
-//     image: "./assets/rolex01.png",
-//   },
-
-//   { id:6,
-//     brand: "Casio",
-//     model: "MTG-B2000PH",
-//     price: 3200,
-//     image: "./assets/rolex01.png",
-//   },
-
-//   { id:7,
-//     brand: "Seiko",
-//     model: "Presage",
-//     price: 1100,
-//     image: "./assets/rolex01.png",
-//   },
-
-//   { id:8,
-//     brand: "Seiko",
-//     model: "Prospex",
-//     price: 2800,
-//     image: "./assets/rolex01.png",
-//   },
-
-//   { id:9,
-//     brand: "Seiko",
-//     model: "5 Sports",
-//     price: 1500,
-//     image: "./assets/rolex01.png",
-//   },
-//   { id:10,
-//     brand: "Seiko",
-//     model: "5 Sports",
-//     price: 1500,
-//     image: "./assets/rolex01.png",
-//   },
-//   { id:11,
-//     brand: "Seiko",
-//     model: "5 Sports",
-//     price: 1500,
-//     image: "./assets/rolex01.png",
-//   },
-//   { id:12,
-//     brand: "Seiko",
-//     model: "5 Sports",
-//     price: 1500,
-//     image: "./assets/rolex01.png",
-//   },
-// ];
-
 // Productos Y creacion de cards
 
 const productContainer = document.getElementById("productContainer");
@@ -140,7 +54,6 @@ function addToCart(productId) {
     cartUpdate();
     getTotalPrice();
     showToast(`${product.brand} ${product.model} Added to Cart`);
-    console.log(shoppingCart, product.quantity);
   }
 }
 
