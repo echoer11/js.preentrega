@@ -102,14 +102,18 @@
 }
 
 .cartCard {
-  padding: 0.3rem;
+  padding-top: 0.3rem;
   margin-bottom: 0.5rem;
+  max-width: 540px;
 }
-.cartCard h5 {
+.cartCard .primer-columna {
+  max-width: 110px;
+}
+.cartCard .primer-columna h5 {
   padding: 0rem;
   margin: 0rem;
 }
-.cartCard p {
+.cartCard .primer-columna p {
   margin: 0rem;
 }
 .cartCard .image-cart {
@@ -118,21 +122,34 @@
   justify-content: center;
 }
 .cartCard .image-cart .card-img-top {
-  padding: 0.2rem;
-  max-height: 145px;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  max-height: 120px;
   width: auto;
 }
 .cartCard .card-body {
-  padding: 0.5rem;
-}
-.cartCard .card-body .button-group span {
-  margin: 0.2rem;
+  padding: 0.3rem;
 }
 .cartCard .card-body .card-price {
   margin-bottom: 0.2rem;
   font-family: "Roboto Mono", monospace;
   font-weight: 300;
   color: #7c7b7b;
+}
+.cartCard .button-group {
+  padding: 0.3rem;
+}
+.cartCard .button-group .paddingBotones {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  justify-content: center;
+}
+.cartCard .button-group .paddingBotones span {
+  padding: 0.25rem;
+}
+.cartCard .button-group .paddingRemove {
+  justify-content: center;
+  padding: 0.3rem;
 }
 
 .footerilli {

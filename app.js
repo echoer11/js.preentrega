@@ -191,28 +191,30 @@ function cartUpdate() {
   for (const product of shoppingCart) {
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
-    cartItem.innerHTML = `<div class="cartCard card mb-2" style="max-width: 540px;">
+    cartItem.innerHTML = `<div class="cartCard card mb-2">
         <div class="row g-0">
           <div class=" image-cart col-sm-4">
             <img src="${product.image}" class="card-img-top"  alt="${product.brand} ${product.model}">
-            </div>
-            
-          <div class="col-sm-8">
+          </div>
+          <div class="col-sm-5">
             <div class="card-body d-flex flex-column justify-content-between h-100">
-              <div>
+              <div class="primer-columna">
                 <h5 class="card-title">${product.brand}</h5>
                 <p class="card-model">${product.model}</p>
                 <p class="card-price">
                   $${product.price * product.quantity}</p>
               </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="button-group">
+            </div>
+          </div>
+          <div class="col-sm-3 button-group">
+          <div class="d-flex flex-column justify-content-between">
+            <div class="paddingBotones d-flex">
                   <button class="btn btn-outline-secondary btn-sm" onclick="reduceQuantity(${product.id})"> - </button>
                   <span>${product.quantity}</span>
                   <button class="btn btn-outline-secondary btn-sm" onclick="addToCart(${product.id})"> + </button>
-                </div>
-                <button class="btn btn-outline-danger btn-sm ms-3" onclick="removeFromCart(${product.id})">Remove</button>
-              </div>
+            </div>
+            <div class="d-flex paddingRemove">
+                <button class="btn btn-outline-danger btn-sm" onclick="removeFromCart(${product.id})">Remove</button>
             </div>
           </div>
         </div>
