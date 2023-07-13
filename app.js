@@ -283,5 +283,5 @@ function endToast(message) {
     offset: {
       y: 50,
     },
-  }).endToast();
+  }).showToast();
 }

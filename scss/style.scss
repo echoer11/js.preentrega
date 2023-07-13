@@ -118,17 +118,19 @@
 }
 
 .total-price {
-	margin: 0.4rem;
 	font-family: 'Roboto Mono', monospace;
 	font-weight: 400;
 	font-size: x-large;
 	color: #7c7b7b
 }
-
+.cart-item{
+	padding-left: 0rem;
+	padding-right: 0rem;
+}
 .cartCard {
 	padding-top: 0.3rem;
 	margin-bottom: 0.5rem;
-	max-width: 540px;
+	max-width: 550px;
 
 	.primer-columna {
 		max-width: 110px;
